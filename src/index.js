@@ -34,10 +34,10 @@ class SmartCalculator {
     return this;
   }
   valueOf (array) {
-    for (let i = 0; i < this.array.length; i++) {
+    for (let i = this.array.length; i > 0; i--) {
       if (this.array[i] == "^") { //find our pow
         this.array.splice([i-1], 3, Math.pow(this.array[i-1], this.array[i+1])); //change the array elements to pow result
-        i--;
+        i++;
       };
     };
     for (let i = 0; i < this.array.length; i++) {
@@ -64,7 +64,7 @@ class SmartCalculator {
         i--;
       };
     };
-    return this.array[0]; // return first element of our array, which is  an answer
+    return this.array.join(""); // return first element of our array, which is  an answer
   };
 };
 
